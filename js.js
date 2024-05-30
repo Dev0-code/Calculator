@@ -1,4 +1,4 @@
-function displayData(n){
+function disData(n){
     result.value+=n
 }
 function findOut(){
