@@ -1,62 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2y ungkapnyaMQOpzlLNkhG5LLLn3WxnQzTWWwL-YfEJKAfIDwMxKlLwXNlsQkpkt" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-    body{
-        background-color: rgba(54, 54, 54, 0.815);
-    }
+    body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.calculator-body {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.display {
+  background-color: #eee;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.clear{
+    background-color: #f00
+}
+.equal {
+    grid-column: span 3;
+    background-color: #f00
+}
 </style>
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4 offset-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">Calculator</h3>
-                        <div id="calculator">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="result" disabled>
-                            </div>
-                            <div class="btn-group btn-group-lg btn-block" role="group">
-                                <button class="btn btn-secondary" onclick="clearScreen()">C</button>
-                                <button class="btn btn-secondary" onclick="backSpace()">DEL</button>
-                                <button class="btn btn-secondary" onclick="disData('/')">/</button>
-                            </div>
-                            <div class="btn-group btn-group-lg btn-block" role="group">
-                                <button class="btn btn-secondary" onclick="disData('7')">7</button>
-                                <button class="btn btn-secondary" onclick="disData('8')">8</button>
-                                <button class="btn btn-secondary" onclick="disData('9')">9</button>
-                                <button class="btn btn-secondary" onclick="disData('*')">*</button>
-                            </div>
-                            <div class="btn-group btn-group-lg btn-block" role="group">
-                                <button class="btn btn-secondary" onclick="disData('4')">4</button>
-                                <button class="btn btn-secondary" onclick="disData('5')">5</button>
-                                <button class="btn btn-secondary" onclick="disData('6')">6</button>
-                                <button class="btn btn-secondary" onclick="disData('-')">-</button>
-                            </div>
-                            <div class="btn-group btn-group-lg btn-block" role="group">
-                                <button class="btn btn-secondary" onclick="disData('1')">1</button>
-                                <button class="btn btn-secondary" onclick="disData('2')">2</button>
-                                <button class="btn btn-secondary" onclick="disData('3')">3</button>
-                                <button class="btn btn-secondary" onclick="disData('+')">+</button>
-                            </div>
-                            <div class="btn-group btn-group-lg btn-block" role="group">
-                                <button class="btn btn-secondary" onclick="disData('0')">0</button>
-                                <button class="btn btn-secondary" onclick="disData('.')">.</button>
-                                <button class="btn btn-primary" onclick="findOut()">=</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <h1>Calculator</h1>
+    <div class="calculator-body">
+      <div class="display" id="display"><input type="text" id="result"></div>
+      <div class="buttons-grid ">
+        <button class="btn clear" onclick="clearScreen()">C</button>
+        <button class="btn clear" onclick="backSpace()">Del</button>
+        <button class="btn decimal" onclick="disData('.')">.</button>
+        <button class="btn operator" onclick="disData('+')">+</button>
+        <button class="btn" onclick="disData(7)">7</button>
+        <button class="btn" onclick="disData(8)">8</button>
+        <button class="btn" onclick="disData(9)">9</button>
+        <button class="btn operator" onclick="selectOperator('/')">/</button>
+        <button class="btn" onclick="disData(4)">4</button>
+        <button class="btn" onclick="disData(5)">5</button>
+        <button class="btn" onclick="disData(6)">6</button>
+        <button class="btn operator" onclick="disData('*')">*</button>
+        <button class="btn" onclick="disData(1)">1</button>
+        <button class="btn" onclick="disData(2)">2</button>
+        <button class="btn" onclick="disData(3)">3</button>
+        <button class="btn operator" onclick="disData('-')">-</button>
+        <button class="btn" onclick="disData(0)">0</button>
+        <button class="btn equal" onclick="findOut()">=</button>
+      </div>
     </div>
-    <script src="./js.js"></script>
+  </div>
+  <script src="./js.js"></script>
 </body>
 </html>
